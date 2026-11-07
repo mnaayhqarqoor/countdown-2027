@@ -1,3 +1,11 @@
+# robots.txt — العد التنازلي لسنة 2027
+
 User-agent: *
 Allow: /
-Sitemap: https://<username>.github.io/<repository-name>/sitemap.xml
+
+# منع فهرسة ملفات الإعدادات الحساسة (احتياطي)
+Disallow: /.git/
+Disallow: /node_modules/
+
+# خريطة الموقع
+Sitemap: https://USERNAME.github.io/REPO/sitemap.xml
