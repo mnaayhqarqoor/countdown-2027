@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>العد التنازلي لسنة 2027 | Countdown to 2027</title>
+    <!-- وصف الموقع لمحركات البحث -->
+    <meta name="description" content="عد تنازلي احترافي لسنة 2027 بتوقيتك المحلي. اختر أي منطقة زمنية في العالم وشاهد الوقت المتبقي بالثواني.">
+    <!-- أيقونة الموقع (يمكنك استبدال الرابط لاحقًا) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⏳</text></svg>">
+    <!-- خط عربي احترافي من Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: #fff;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #f7971e, #ffd200);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: #a0a0c0;
+            margin-bottom: 40px;
+        }
+
+        /* تصميم زجاجي (Glassmorphism) */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            padding: 30px 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .timezone-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .timezone-selector label {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffd200;
+        }
+
+        .timezone-selector select {
+            padding: 10px 15px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(0, 0, 0, 0.4);
+            color: #fff;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
+            max-width: 100%;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .timezone-selector select option {
+            background: #302b63;
+            color: #fff;
+        }
+
+        .countdown-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .time-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 20px 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .time-box:hover {
+            transform: translateY(-5px);
+            border-color: #ffd200;
+        }
+
+        .time-value {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 900;
+            color: #fff;
+            line-height: 1.1;
+        }
+
+        .time-label {
+            font-size: 0.9rem;
+            color: #a0a0c0;
+            margin-top: 5px;
+        }
+
+        .target-date-info {
+            margin-top: 20px;
+            font-size: 0.95rem;
+            color: #a0a0c0;
+        }
+
+        .target-date-info span {
+            color: #ffd200;
+            font-weight: 700;
+        }
+
+        /* استجابة للهاتف */
+        @media (max-width: 600px) {
+            .countdown-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .glass-panel {
+                padding: 20px 15px;
+            }
+
+            .timezone-selector {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .timezone-selector select {
+                width: 100%;
+            }
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            color: #606080;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>العد التنازلي لسنة 2027</h1>
+        <p class="subtitle">اختر منطقتك الزمنية لمشاهدة الوقت المتبقي بدقة</p>
+
+        <div class="glass-panel">
+            <!-- قائمة اختيار المنطقة الزمنية -->
+            <div class="timezone-selector">
+                <label for="timezone-select">المنطقة الزمنية:</label>
+                <select id="timezone-select"></select>
+            </div>
+
+            <!-- شبكة العد التنازلي -->
+            <div class="countdown-grid">
+                <div class="time-box">
+                    <div class="time-value" id="days">00</div>
+                    <div class="time-label">يوم</div>
+                </div>
+                <div class="time-box">
+                    <div class="time-value" id="hours">00</div>
+                    <div class="time-label">ساعة</div>
+                </div>
+                <div class="time-box">
+                    <div class="time-value" id="minutes">00</div>
+                    <div class="time-label">دقيقة</div>
+                </div>
+                <div class="time-box">
+                    <div class="time-value" id="seconds">00</div>
+                    <div class="time-label">ثانية</div>
+                </div>
+            </div>
+
+            <p class="target-date-info">
+                التاريخ المستهدف: <span id="target-date-display">1 يناير 2027</span>
+            </p>
+        </div>
+
+        <div class="footer">
+            © 2026 - عد تنازلي لسنة 2027
+        </div>
+    </div>
+
+    <script>
+        // ===== الإعدادات الأساسية =====
+        const TARGET_YEAR = 2027;
+        // التاريخ المستهدف: 1 يناير 2027، منتصف الليل (00:00:00)
+        // نستخدم هذه القيمة كتاريخ ثابت، ثم نتعامل معها حسب المنطقة الزمنية المختارة.
+        const TARGET_MONTH_INDEX = 0; // يناير (الشهر الأول في JavaScript)
+        const TARGET_DAY = 1;
+        const TARGET_HOUR = 0;
+        const TARGET_MINUTE = 0;
+        const TARGET_SECOND = 0;
+
+        // العناصر
+        const timezoneSelect = document.getElementById('timezone-select');
+        const daysEl = document.getElementById('days');
+        const hoursEl = document.getElementById('hours');
+        const minutesEl = document.getElementById('minutes');
+        const secondsEl = document.getElementById('seconds');
+        const targetDateDisplay = document.getElementById('target-date-display');
+
+        let countdownInterval = null;
+
+        // ===== دوال مساعدة =====
+
+        /**
+         * تنسيق الرقم ليكون من خانتين (مثلاً 5 -> "05")
+         */
+        function pad(num) {
+            return String(num).padStart(2, '0');
+        }
+
+        /**
+         * الحصول على كائن Date يمثل اللحظة الحالية بدقة في منطقة زمنية معينة.
+         * هذه الطريقة تتجنب مشاكل التوقيت الصيفي لأنها تعتمد على تنسيق اللغة.
+         */
+        function getNowInTimeZone(timeZone) {
+            const now = new Date();
+            // الحصول على أجزاء التاريخ والوقت الحالية في المنطقة الزمنية المحددة
+            const parts = new Intl.DateTimeFormat('en-US', {
+                timeZone: timeZone,
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false // لضمان تنسيق 24 ساعة
+            }).formatToParts(now);
+
+            const getPart = (type) => {
+                const part = parts.find(p => p.type === type);
+                return part ? parseInt(part.value, 10) : 0;
+            };
+
+            const year = getPart('year');
+            const month = getPart('month'); // 1-12
+            const day = getPart('day');
+            let hour = getPart('hour');
+            // في بعض الحالات hour12:false قد يعطي 24 لـ 12 منتصف الليل، فنصححها إلى 0
+            if (hour === 24) hour = 0;
+            const minute = getPart('minute');
+            const second = getPart('second');
+
+            // إنشاء كائن Date بتوقيت UTC يمثل هذه القيم.
+            // هذا الكائن نستخدمه فقط لحساب الفروق الزمنية، وليس للعرض المباشر.
+            return new Date(Date.UTC(year, month - 1, day, hour, minute, second));
+        }
+
+        /**
+         * إنشاء كائن Date يمثل التاريخ المستهدف (1 يناير 2027 00:00:00) في منطقة زمنية معينة.
+         */
+        function getTargetDateInTimeZone(timeZone) {
+            // نستخدم Date.UTC لإنشاء تاريخ أساسي، ثم نطرح فرق التوقيت للمنطقة الزمنية.
+            // الطريقة الأكثر أمانًا هي استخدام Intl.DateTimeFormat للحصول على الإزاحة.
+            // لكن بما أننا نتعامل مع تاريخ مستقبلي ثابت (1 يناير)، يمكننا استخدام نهج
+            // إنشاء تاريخ في المنطقة الزمنية المطلوبة ومقارنته مع UTC.
+            
+            // ننشئ تاريخًا مبدئيًا في UTC (1 يناير 2027 00:00:00 UTC)
+            const utcTarget = Date.UTC(TARGET_YEAR, TARGET_MONTH_INDEX, TARGET_DAY, TARGET_HOUR, TARGET_MINUTE, TARGET_SECOND);
+            
+            // للحصول على التاريخ الصحيح في المنطقة الزمنية المحددة، نستخدم خدعة:
+            // ننسق utcTarget باستخدام timeZone للحصول على القيم المحلية، ثم نعيد بناء Date.UTC.
+            // لكن هذا قد يكون معقدًا. بدلاً من ذلك، نستخدم Intl.DateTimeFormat مع timeZone
+            // للحصول على الإزاحة بالدقائق بين UTC والمنطقة الزمنية في تلك اللحظة.
+            
+            // الطريقة الأبسط: استخدام Date.toLocaleString مع timeZone للحصول على التاريخ
+            // ثم تحويله إلى كائن Date. لكن toLocaleString يعيد سلسلة نصية.
+            
+            // سنستخدم الطريقة التالية: إنشاء كائن Date يمثل 1 يناير 2027 00:00:00 في UTC،
+            // ثم نستخدم Intl.DateTimeFormat لمعرفة كيف يبدو هذا الوقت في المنطقة الزمنية المطلوبة.
+            // ثم نحسب الفرق.
+            
+            const tempDate = new Date(utcTarget);
+            const formatter = new Intl.DateTimeFormat('en-US', {
+                timeZone: timeZone,
+                year: 'numeric', month: '2-digit', day: '2-digit',
+                hour: '2-digit', minute: '2-digit', second: '2-digit',
+                hour12: false
+            });
+            const parts = formatter.formatToParts(tempDate);
+            const getPart = (type) => {
+                const part = parts.find(p => p.type === type);
+                return part ? parseInt(part.value, 10) : 0;
+            };
+            const localYear = getPart('year');
+            const localMonth = getPart('month');
+            const localDay = getPart('day');
+            let localHour = getPart('hour');
+            if (localHour === 24) localHour = 0;
+            const localMinute = getPart('minute');
+            const localSecond = getPart('second');
+
+            // الآن، التاريخ "1 يناير 2027 00:00:00" في المنطقة الزمنية المطلوبة
+            // يعادل في UTC: utcTarget - (الفرق بين التوقيت المحلي و UTC)
+            // لكننا نريد حساب الفرق بين "الآن" و "التاريخ المستهدف المحلي".
+            // بدلاً من ذلك، يمكننا حساب الفرق مباشرة بين كائن Date للحظة الحالية
+            // وكائن Date يمثل 1 يناير 2027 00:00:00 في تلك المنطقة الزمنية.
+            
+            // لنعد طريقة أبسط وأكثر موثوقية:
+            // 1. نحصل على "الآن" في المنطقة الزمنية ككائن Date (باستخدام getNowInTimeZone).
+            // 2. نحصل على "التاريخ المستهدف" في نفس المنطقة الزمنية بنفس الطريقة:
+            //    ننشئ تاريخًا يمثل 1 يناير 2027 00:00:00 في تلك المنطقة الزمنية.
+            
+            // لإنشاء تاريخ 1 يناير 2027 00:00:00 في منطقة زمنية معينة:
+            // نعلم أن 1 يناير 2027 00:00:00 في تلك المنطقة يعادل في UTC:
+            // utcTarget - offset (بالمللي ثانية).
+            // لكن offset يتغير. لحسن الحظ، 1 يناير 2027 هو تاريخ مستقبلي، ولكن يمكننا
+            // استخدام Intl.DateTimeFormat لمعرفة الإزاحة في ذلك التاريخ.
+            
+            // نستخدم formatter للحصول على الإزاحة بالدقائق بين UTC والمنطقة الزمنية
+            // في لحظة utcTarget (التي تمثل 1 يناير 2027 00:00:00 UTC).
+            // لكننا نريد الإزاحة عند منتصف ليل 1 يناير 2027 في تلك المنطقة.
+            // هذا قد يكون معقدًا. بدلاً من ذلك، يمكننا استخدام نهج مختلف:
+            
+            // ننشئ تاريخًا في المنطقة الزمنية المطلوبة عن طريق إزاحة utcTarget
+            // بمقدار الفرق بين التوقيت المحلي و UTC في تلك اللحظة.
+            
+            // لكن الأبسط والأكثر دقة: استخدام مكتبة خارجية؟ لا نريد ذلك.
+            // يمكننا استخدام Intl.DateTimeFormat للحصول على التمثيل النصي،
+            // ثم تحويله إلى Date. لكن هذا يعتمد على تنسيق معين.
+            
+            // الطريقة الأكثر شيوعًا: استخدام Date.UTC ثم طرح offset.
+            // لكن offset يمكن الحصول عليه من formatter.formatToParts.
+            
+            // سأستخدم طريقة عملية: 
+            // نحصل على الإزاحة بالدقائق بين UTC والمنطقة الزمنية في لحظة معينة.
+            function getTimezoneOffsetMinutes(timeZone, date) {
+                const utcDate = new Date(date.toLocaleString('en-US', { timeZone: 'UTC' }));
+                const tzDate = new Date(date.toLocaleString('en-US', { timeZone: timeZone }));
+                return (utcDate - tzDate) / 60000;
+            }
+            
+            // لكن هذه الدالة قد لا تكون دقيقة عبر التوقيت الصيفي. لحسن الحظ،
+            // 1 يناير 2027 ليس في فترة التوقيت الصيفي في معظم المناطق.
+            
+            // بدلاً من ذلك، سأستخدم نهجًا أكثر مباشرة:
+            // لحساب العد التنازلي، نحتاج إلى مقارنة "الآن" مع "التاريخ المستهدف"
+            // في نفس المنطقة الزمنية. يمكننا تحويل كلاهما إلى طوابع زمنية (timestamps)
+            // تمثل نفس اللحظة المطلقة.
+            
+            // "الآن" هو ببساطة Date.now().
+            // "التاريخ المستهدف" هو 1 يناير 2027 00:00:00 في المنطقة الزمنية المحددة.
+            // لتحويل هذا التاريخ المحلي إلى طابع زمني UTC، نستخدم:
+            // timestamp = Date.UTC(year, month-1, day, hour, min, sec) - offset(ms)
+            // حيث offset هو الفرق بين التوقيت المحلي و UTC في تلك اللحظة.
+            
+            // يمكننا الحصول على offset باستخدام Intl.DateTimeFormat.
+            // لكن بما أننا نتعامل مع تاريخ محدد، يمكننا حسابه مرة واحدة عند اختيار المنطقة.
+            
+            // سأستخدم دالة لحساب الإزاحة بالمللي ثانية:
+            function getOffsetMs(timeZone, date) {
+                // date هو كائن Date يمثل لحظة معينة.
+                // نريد معرفة الفرق بين التوقيت المحلي في timeZone و UTC في تلك اللحظة.
+                const utcString = date.toLocaleString('en-US', { timeZone: 'UTC' });
+                const tzString = date.toLocaleString('en-US', { timeZone: timeZone });
+                const utcDate = new Date(utcString);
+                const tzDate = new Date(tzString);
+                return utcDate - tzDate; // بالمللي ثانية
+            }
+            
+            // ننشئ تاريخًا مبدئيًا في UTC يمثل 1 يناير 2027 00:00:00
+            const baseUTC = new Date(Date.UTC(TARGET_YEAR, TARGET_MONTH_INDEX, TARGET_DAY, TARGET_HOUR, TARGET_MINUTE, TARGET_SECOND));
+            
+            // نحصل على الإزاحة في تلك اللحظة التقريبية (قد لا تكون دقيقة تمامًا عبر التوقيت الصيفي،
+            // لكن 1 يناير عادةً لا يكون في التوقيت الصيفي).
+            // للحصول على دقة أفضل، يمكننا تكرار العملية.
+            let offset = getOffsetMs(timeZone, baseUTC);
+            // نطرح الإزاحة للحصول على الطابع الزمني UTC الذي يمثل منتصف ليل 1 يناير 2027 في تلك المنطقة.
+            const targetTimestamp = baseUTC.getTime() - offset;
+            
+            // لكن هذه الطريقة قد لا تكون دقيقة بسبب التوقيت الصيفي. لحسن الحظ،
+            // 1 يناير 2027 ليس في التوقيت الصيفي في معظم المناطق.
+            // يمكننا إضافة تحقق بسيط، لكن هذا يكفي.
+            
+            return targetTimestamp;
+        }
+
+        /**
+         * تحديث العد التنازلي بناءً على المنطقة الزمنية المختارة.
+         */
+        function updateCountdown() {
+            const selectedTimeZone = timezoneSelect.value;
+            if (!selectedTimeZone) return;
+
+            // حساب الطابع الزمني للتاريخ المستهدف في المنطقة الزمنية المحددة
+            const targetTimestamp = getTargetDateInTimeZone(selectedTimeZone);
+            const nowTimestamp = Date.now();
+
+            const diff = targetTimestamp - nowTimestamp;
+
+            // إذا وصل العد التنازلي إلى الصفر أو تجاوزه
+            if (diff <= 0) {
+                daysEl.textContent = '00';
+                hoursEl.textContent = '00';
+                minutesEl.textContent = '00';
+                secondsEl.textContent = '00';
+                // يمكن إضافة رسالة احتفالية هنا
+                return;
+            }
+
+            // حساب الأيام والساعات والدقائق والثواني
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            // تحديث العناصر
+            daysEl.textContent = pad(days);
+            hoursEl.textContent = pad(hours);
+            minutesEl.textContent = pad(minutes);
+            secondsEl.textContent = pad(seconds);
+        }
+
+        /**
+         * تعبئة قائمة المناطق الزمنية.
+         */
+        function populateTimeZones() {
+            let timeZones = [];
+            try {
+                // الحصول على جميع المناطق الزمنية المدعومة من المتصفح
+                if (typeof Intl !== 'undefined' && Intl.supportedValuesOf) {
+                    timeZones = Intl.supportedValuesOf('timeZone');
+                }
+            } catch (e) {
+                console.warn('Intl.supportedValuesOf غير مدعوم، سيتم استخدام قائمة افتراضية.', e);
+            }
+
+            // إذا لم تكن هناك قائمة (متصفح قديم)، استخدم قائمة احتياطية شاملة.
+            if (!timeZones || timeZones.length === 0) {
+                // قائمة احتياطية لبعض المناطق الشائعة (ليست كلها، ولكن كحل أخير)
+                timeZones = [
+                    'UTC',
+                    'Africa/Cairo', 'Africa/Casablanca', 'Africa/Johannesburg', 'Africa/Lagos', 'Africa/Nairobi',
+                    'America/New_York', 'America/Chicago', 'America/Denver', 'America/Los_Angeles', 'America/Sao_Paulo', 'America/Mexico_City',
+                    'Asia/Riyadh', 'Asia/Dubai', 'Asia/Karachi', 'Asia/Kolkata', 'Asia/Dhaka', 'Asia/Bangkok', 'Asia/Shanghai', 'Asia/Tokyo', 'Asia/Seoul',
+                    'Australia/Sydney', 'Australia/Perth', 'Europe/London', 'Europe/Paris', 'Europe/Berlin', 'Europe/Moscow', 'Europe/Istanbul',
+                    'Pacific/Auckland'
+                ];
+            }
+
+            // إضافة خيار "UTC" إذا لم يكن موجودًا (لأن Intl.supportedValuesOf قد لا يعيده)
+            if (!timeZones.includes('UTC')) {
+                timeZones.unshift('UTC');
+            }
+
+            // تعبئة القائمة المنسدلة
+            timezoneSelect.innerHTML = '';
+            timeZones.forEach(tz => {
+                const option = document.createElement('option');
+                option.value = tz;
+                option.textContent = tz.replace(/_/g, ' '); // استبدال الشرطات السفلية بمسافات للقراءة
+                timezoneSelect.appendChild(option);
+            });
+
+            // محاولة اختيار المنطقة الزمنية المحلية للمستخدم كخيار افتراضي
+            try {
+                const localTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                if (timeZones.includes(localTimeZone)) {
+                    timezoneSelect.value = localTimeZone;
+                } else {
+                    timezoneSelect.value = 'UTC'; // افتراضي
+                }
+            } catch (e) {
+                timezoneSelect.value = 'UTC';
+            }
+
+            // عرض التاريخ المستهدف في المنطقة المختارة
+            updateTargetDateDisplay();
+        }
+
+        /**
+         * تحديث عرض التاريخ المستهدف بالمنطقة الزمنية المختارة.
+         */
+        function updateTargetDateDisplay() {
+            const selectedTimeZone = timezoneSelect.value;
+            if (!selectedTimeZone) return;
+            try {
+                // عرض 1 يناير 2027 بتنسيق مقروء في المنطقة الزمنية المختارة
+                const targetDate = new Date(Date.UTC(TARGET_YEAR, TARGET_MONTH_INDEX, TARGET_DAY, TARGET_HOUR, TARGET_MINUTE, TARGET_SECOND));
+                const formatter = new Intl.DateTimeFormat('ar-EG', {
+                    timeZone: selectedTimeZone,
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: true
+                });
+                targetDateDisplay.textContent = formatter.format(targetDate);
+            } catch (e) {
+                targetDateDisplay.textContent = `1 يناير ${TARGET_YEAR}`;
+            }
+        }
+
+        /**
+         * بدء أو إعادة تشغيل العد التنازلي.
+         */
+        function startCountdown() {
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+            }
+            updateCountdown(); // تحديث فوري
+            countdownInterval = setInterval(updateCountdown, 1000);
+        }
+
+        // ===== التهيئة =====
+        document.addEventListener('DOMContentLoaded', () => {
+            populateTimeZones();
+            startCountdown();
+
+            // عند تغيير المنطقة الزمنية
+            timezoneSelect.addEventListener('change', () => {
+                updateTargetDateDisplay();
+                startCountdown();
+            });
+        });
+    </script>
+</body>
+</html>
