@@ -1,552 +1,887 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>العد التنازلي لسنة 2027 | Countdown to 2027</title>
-    <!-- وصف الموقع لمحركات البحث -->
-    <meta name="description" content="عد تنازلي احترافي لسنة 2027 بتوقيتك المحلي. اختر أي منطقة زمنية في العالم وشاهد الوقت المتبقي بالثواني.">
-    <!-- أيقونة الموقع (يمكنك استبدال الرابط لاحقًا) -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⏳</text></svg>">
-    <!-- خط عربي احترافي من Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>العد التنازلي لسنة 2027 | Countdown to 2027</title>
 
-        body {
-            font-family: 'Cairo', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-            color: #fff;
-            padding: 20px;
-            overflow-x: hidden;
-        }
+<!-- ===== كلمات مفتاحية لبحث Google ===== -->
+<meta name="description" content="عد تنازلي احترافي لسنة 2027 بتوقيتك المحلي. اختر أي منطقة زمنية في العالم وشاهد الوقت المتبقي بالأيام والساعات والدقائق والثواني. Countdown to 2027.">
+<meta name="keywords" content="العد التنازلي 2027, عداد تنازلي 2027, سنة 2027, رأس السنة 2027, كم باقي على 2027, countdown 2027, new year 2027 countdown, countdown timer, timezone countdown, 2027">
+<meta name="author" content="Countdown 2027">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0a0616">
+<meta name="format-detection" content="telephone=no">
 
-        .container {
-            width: 100%;
-            max-width: 900px;
-            text-align: center;
-        }
+<!-- ===== Open Graph / Social ===== -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="العد التنازلي لسنة 2027">
+<meta property="og:description" content="شاهد الوقت المتبقي لسنة 2027 بدقة في أي منطقة زمنية">
+<meta property="og:locale" content="ar_AR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="العد التنازلي لسنة 2027">
+<meta name="twitter:description" content="شاهد الوقت المتبقي لسنة 2027 بدقة في أي منطقة زمنية">
 
-        h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 900;
-            margin-bottom: 10px;
-            background: linear-gradient(90deg, #f7971e, #ffd200);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+<!-- ===== أيقونة الموقع ===== -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏳</text></svg>">
 
-        .subtitle {
-            font-size: 1rem;
-            color: #a0a0c0;
-            margin-bottom: 40px;
-        }
+<!-- ===== بيانات منظمة لـ Google ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "العد التنازلي لسنة 2027",
+  "description": "عد تنازلي تفاعلي لسنة 2027 مع دعم جميع المناطق الزمنية.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "All",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
 
-        /* تصميم زجاجي (Glassmorphism) */
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 24px;
-            padding: 30px 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        }
+<!-- ===== الخط العربي ===== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
 
-        .timezone-selector {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 30px;
-        }
+<style>
+  /* ========== RESET ========== */
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
 
-        .timezone-selector label {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #ffd200;
-        }
+  :root {
+    --bg-1: #0a0616;
+    --bg-2: #1a0b2e;
+    --bg-3: #0f0c29;
+    --text-1: #ffffff;
+    --text-2: #a8a8c8;
+    --text-3: #6b6b8a;
+    --pink: #ff6b9d;
+    --purple: #c44eff;
+    --cyan: #4effd0;
+    --gold: #ffd700;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --radius-lg: 28px;
+    --radius-md: 20px;
+    --radius-sm: 14px;
+    --font: 'Cairo', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  }
 
-        .timezone-selector select {
-            padding: 10px 15px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            background: rgba(0, 0, 0, 0.4);
-            color: #fff;
-            font-family: 'Cairo', sans-serif;
-            font-size: 1rem;
-            max-width: 100%;
-            outline: none;
-            cursor: pointer;
-        }
+  html, body {
+    height: 100%;
+    overflow-x: hidden;
+  }
 
-        .timezone-selector select option {
-            background: #302b63;
-            color: #fff;
-        }
+  body {
+    font-family: var(--font);
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, var(--bg-2) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 80% 100%, rgba(196, 78, 255, 0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 20% 80%, rgba(78, 255, 208, 0.08) 0%, transparent 60%),
+      linear-gradient(180deg, var(--bg-1) 0%, var(--bg-3) 100%);
+    background-attachment: fixed;
+    color: var(--text-1);
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 16px 40px;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-        .countdown-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin-top: 10px;
-        }
+  /* ========== الخلفية المتحركة (كرات ضوئية) ========== */
+  .bg {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
 
-        .time-box {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            padding: 20px 10px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease;
-        }
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.35;
+    will-change: transform;
+  }
 
-        .time-box:hover {
-            transform: translateY(-5px);
-            border-color: #ffd200;
-        }
+  .orb-1 {
+    width: 380px; height: 380px;
+    background: var(--pink);
+    top: -120px; right: -100px;
+    animation: float1 22s ease-in-out infinite;
+  }
+  .orb-2 {
+    width: 320px; height: 320px;
+    background: var(--purple);
+    bottom: -100px; left: -80px;
+    animation: float2 26s ease-in-out infinite;
+  }
+  .orb-3 {
+    width: 260px; height: 260px;
+    background: var(--cyan);
+    top: 45%; left: 55%;
+    opacity: 0.2;
+    animation: float3 30s ease-in-out infinite;
+  }
 
-        .time-value {
-            font-size: clamp(2rem, 6vw, 3.5rem);
-            font-weight: 900;
-            color: #fff;
-            line-height: 1.1;
-        }
+  @keyframes float1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-60px, 80px) scale(1.15); }
+  }
+  @keyframes float2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(60px, -60px) scale(1.1); }
+  }
+  @keyframes float3 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-40px, -40px) scale(1.2); }
+  }
 
-        .time-label {
-            font-size: 0.9rem;
-            color: #a0a0c0;
-            margin-top: 5px;
-        }
+  /* ========== الحاوية الرئيسية ========== */
+  .app {
+    width: 100%;
+    max-width: 880px;
+    position: relative;
+    z-index: 1;
+  }
 
-        .target-date-info {
-            margin-top: 20px;
-            font-size: 0.95rem;
-            color: #a0a0c0;
-        }
+  /* ========== العنوان ========== */
+  .header {
+    text-align: center;
+    margin-bottom: 28px;
+    animation: fadeInUp 0.8s ease-out both;
+  }
 
-        .target-date-info span {
-            color: #ffd200;
-            font-weight: 700;
-        }
+  .header h1 {
+    font-size: clamp(1.7rem, 5.5vw, 3rem);
+    font-weight: 900;
+    line-height: 1.25;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, var(--pink) 0%, var(--purple) 40%, var(--cyan) 80%, var(--pink) 100%);
+    background-size: 250% 250%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 8s ease-in-out infinite;
+    margin-bottom: 8px;
+  }
 
-        /* استجابة للهاتف */
-        @media (max-width: 600px) {
-            .countdown-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
 
-            .glass-panel {
-                padding: 20px 15px;
-            }
+  .header .subtitle {
+    font-size: clamp(0.85rem, 2.5vw, 1rem);
+    color: var(--text-2);
+    font-weight: 400;
+  }
 
-            .timezone-selector {
-                flex-direction: column;
-                align-items: stretch;
-            }
+  /* ========== زجاجية ========== */
+  .glass {
+    background: rgba(20, 15, 40, 0.55);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    box-shadow:
+      0 25px 70px rgba(0, 0, 0, 0.55),
+      0 0 80px rgba(196, 78, 255, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
 
-            .timezone-selector select {
-                width: 100%;
-            }
-        }
+  @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .glass {
+      background: var(--glass-bg);
+      backdrop-filter: blur(28px) saturate(180%);
+      -webkit-backdrop-filter: blur(28px) saturate(180%);
+    }
+  }
 
-        .footer {
-            margin-top: 30px;
-            font-size: 0.85rem;
-            color: #606080;
-        }
-    </style>
+  /* ========== البطاقة الرئيسية ========== */
+  .main-card {
+    padding: clamp(20px, 4vw, 36px);
+    position: relative;
+    animation: fadeInUp 0.9s ease-out 0.15s both;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ========== صف اختيار المنطقة الزمنية ========== */
+  .tz-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .tz-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-1);
+    white-space: nowrap;
+  }
+
+  .tz-icon { font-size: 1.1rem; }
+
+  .select-wrap {
+    position: relative;
+    flex: 1;
+    min-width: 200px;
+  }
+
+  #tz-select {
+    width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--text-1);
+    font-family: var(--font);
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 12px 44px 12px 16px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    outline: none;
+    text-overflow: ellipsis;
+  }
+
+  #tz-select:hover { background: rgba(255, 255, 255, 0.09); }
+
+  #tz-select:focus {
+    border-color: rgba(196, 78, 255, 0.6);
+    box-shadow: 0 0 0 4px rgba(196, 78, 255, 0.15);
+  }
+
+  #tz-select option,
+  #tz-select optgroup {
+    background: #1a0b2e;
+    color: #fff;
+    font-family: var(--font);
+  }
+
+  #tz-select optgroup {
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  .select-arrow {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-2);
+    pointer-events: none;
+  }
+
+  .tz-offset {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--cyan);
+    background: rgba(78, 255, 208, 0.1);
+    border: 1px solid rgba(78, 255, 208, 0.25);
+    padding: 6px 12px;
+    border-radius: 100px;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ========== صف الوقت الحالي ========== */
+  .now-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px 16px;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .now-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: var(--text-2);
+    font-weight: 600;
+  }
+
+  .live-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--cyan);
+    border-radius: 50%;
+    box-shadow: 0 0 12px var(--cyan);
+    animation: pulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+  }
+
+  .now-clock {
+    font-size: clamp(1.1rem, 3vw, 1.35rem);
+    font-weight: 900;
+    color: var(--text-1);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 1px;
+  }
+
+  .now-date {
+    font-size: 0.85rem;
+    color: var(--text-2);
+    font-weight: 400;
+  }
+
+  /* ========== شبكة العد التنازلي ========== */
+  .countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(8px, 2vw, 16px);
+    margin-bottom: 24px;
+  }
+
+  .time-box {
+    position: relative;
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    padding: clamp(14px, 3vw, 22px) 6px clamp(12px, 2.5vw, 18px);
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.3s,
+                box-shadow 0.35s;
+    will-change: transform;
+    animation: fadeInUp 0.7s ease-out both;
+  }
+
+  .time-box:nth-child(1) { animation-delay: 0.30s; --accent: var(--pink); }
+  .time-box:nth-child(2) { animation-delay: 0.40s; --accent: var(--purple); }
+  .time-box:nth-child(3) { animation-delay: 0.50s; --accent: var(--cyan); }
+  .time-box:nth-child(4) { animation-delay: 0.60s; --accent: var(--gold); }
+
+  .time-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 15%;
+    right: 15%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0.9;
+  }
+
+  .time-box:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  }
+
+  .time-value {
+    font-size: clamp(1.8rem, 7vw, 3.2rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -1px;
+    font-variant-numeric: tabular-nums;
+    background: linear-gradient(180deg, #ffffff 0%, var(--accent) 130%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.08));
+    margin-bottom: 6px;
+  }
+
+  .time-label {
+    font-size: clamp(0.68rem, 2.2vw, 0.82rem);
+    color: var(--text-2);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  /* ========== شريط التقدم ========== */
+  .progress-section {
+    padding-top: 4px;
+  }
+
+  .progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.82rem;
+    color: var(--text-2);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .progress-percent {
+    color: var(--gold);
+    font-weight: 900;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .progress-track {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 100px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--pink), var(--purple), var(--cyan));
+    background-size: 200% 100%;
+    border-radius: 100px;
+    box-shadow: 0 0 20px rgba(196, 78, 255, 0.6);
+    transition: width 1s linear;
+    animation: gradientSlide 4s linear infinite;
+  }
+
+  @keyframes gradientSlide {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+  }
+
+  /* ========== الفوتر ========== */
+  .footer {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 0.78rem;
+    color: var(--text-3);
+    animation: fadeInUp 0.9s ease-out 0.3s both;
+  }
+
+  /* ========== استجابة الشاشات ========== */
+  @media (max-width: 560px) {
+    .countdown-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .tz-row {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+    }
+    .tz-label { justify-content: center; }
+    .select-wrap { min-width: 0; }
+    .tz-offset { text-align: center; align-self: center; }
+    .now-row { flex-direction: column; gap: 4px; }
+  }
+
+  @media (max-width: 360px) {
+    .main-card { padding: 16px; }
+    .time-value { font-size: 1.5rem; }
+  }
+
+  /* ========== تقليل الحركة ========== */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* ========== دعم وضع الطباعة ========== */
+  @media print {
+    .bg, .orb { display: none; }
+    body { background: #fff; color: #000; }
+  }
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>العد التنازلي لسنة 2027</h1>
-        <p class="subtitle">اختر منطقتك الزمنية لمشاهدة الوقت المتبقي بدقة</p>
 
-        <div class="glass-panel">
-            <!-- قائمة اختيار المنطقة الزمنية -->
-            <div class="timezone-selector">
-                <label for="timezone-select">المنطقة الزمنية:</label>
-                <select id="timezone-select"></select>
-            </div>
+  <!-- كرات الخلفية المتحركة -->
+  <div class="bg" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
 
-            <!-- شبكة العد التنازلي -->
-            <div class="countdown-grid">
-                <div class="time-box">
-                    <div class="time-value" id="days">00</div>
-                    <div class="time-label">يوم</div>
-                </div>
-                <div class="time-box">
-                    <div class="time-value" id="hours">00</div>
-                    <div class="time-label">ساعة</div>
-                </div>
-                <div class="time-box">
-                    <div class="time-value" id="minutes">00</div>
-                    <div class="time-label">دقيقة</div>
-                </div>
-                <div class="time-box">
-                    <div class="time-value" id="seconds">00</div>
-                    <div class="time-label">ثانية</div>
-                </div>
-            </div>
+  <main class="app">
+    <header class="header">
+      <h1>العد التنازلي لسنة 2027</h1>
+      <p class="subtitle">اختر منطقتك الزمنية وشاهد الوقت المتبقي بدقة</p>
+    </header>
 
-            <p class="target-date-info">
-                التاريخ المستهدف: <span id="target-date-display">1 يناير 2027</span>
-            </p>
+    <section class="glass main-card">
+
+      <!-- اختيار المنطقة الزمنية -->
+      <div class="tz-row">
+        <label for="tz-select" class="tz-label">
+          <span class="tz-icon">🌍</span>
+          المنطقة الزمنية
+        </label>
+        <div class="select-wrap">
+          <select id="tz-select" aria-label="اختر المنطقة الزمنية"></select>
+          <svg class="select-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
         </div>
+        <div class="tz-offset" id="tz-offset">—</div>
+      </div>
 
-        <div class="footer">
-            © 2026 - عد تنازلي لسنة 2027
+      <!-- الوقت الحالي -->
+      <div class="now-row">
+        <div class="now-indicator">
+          <span class="live-dot"></span>
+          <span>الوقت الآن</span>
         </div>
-    </div>
+        <div class="now-clock" id="current-time">--:--:--</div>
+        <div class="now-date" id="current-date">—</div>
+      </div>
 
-    <script>
-        // ===== الإعدادات الأساسية =====
-        const TARGET_YEAR = 2027;
-        // التاريخ المستهدف: 1 يناير 2027، منتصف الليل (00:00:00)
-        // نستخدم هذه القيمة كتاريخ ثابت، ثم نتعامل معها حسب المنطقة الزمنية المختارة.
-        const TARGET_MONTH_INDEX = 0; // يناير (الشهر الأول في JavaScript)
-        const TARGET_DAY = 1;
-        const TARGET_HOUR = 0;
-        const TARGET_MINUTE = 0;
-        const TARGET_SECOND = 0;
+      <!-- العد التنازلي -->
+      <div class="countdown-grid" aria-label="الوقت المتبقي حتى 2027">
+        <div class="time-box">
+          <div class="time-value" id="days">00</div>
+          <div class="time-label">يوم</div>
+        </div>
+        <div class="time-box">
+          <div class="time-value" id="hours">00</div>
+          <div class="time-label">ساعة</div>
+        </div>
+        <div class="time-box">
+          <div class="time-value" id="minutes">00</div>
+          <div class="time-label">دقيقة</div>
+        </div>
+        <div class="time-box">
+          <div class="time-value" id="seconds">00</div>
+          <div class="time-label">ثانية</div>
+        </div>
+      </div>
 
-        // العناصر
-        const timezoneSelect = document.getElementById('timezone-select');
-        const daysEl = document.getElementById('days');
-        const hoursEl = document.getElementById('hours');
-        const minutesEl = document.getElementById('minutes');
-        const secondsEl = document.getElementById('seconds');
-        const targetDateDisplay = document.getElementById('target-date-display');
+      <!-- شريط التقدم -->
+      <div class="progress-section">
+        <div class="progress-header">
+          <span>تقدّم سنة <span id="current-year">2026</span></span>
+          <span class="progress-percent" id="progress-percent">0%</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+      </div>
 
-        let countdownInterval = null;
+    </section>
 
-        // ===== دوال مساعدة =====
+    <footer class="footer">
+      <p>© <span id="footer-year">2026</span> — العد التنازلي لسنة 2027</p>
+    </footer>
+  </main>
 
-        /**
-         * تنسيق الرقم ليكون من خانتين (مثلاً 5 -> "05")
-         */
-        function pad(num) {
-            return String(num).padStart(2, '0');
+<script>
+(function () {
+  'use strict';
+
+  /* ============ الإعدادات ============ */
+  var TARGET = { year: 2027, month: 0, day: 1, hour: 0, minute: 0, second: 0 };
+
+  /* ============ العناصر ============ */
+  var tzSelect       = document.getElementById('tz-select');
+  var tzOffset       = document.getElementById('tz-offset');
+  var currentTimeEl  = document.getElementById('current-time');
+  var currentDateEl  = document.getElementById('current-date');
+  var currentYearEl  = document.getElementById('current-year');
+  var daysEl         = document.getElementById('days');
+  var hoursEl        = document.getElementById('hours');
+  var minutesEl      = document.getElementById('minutes');
+  var secondsEl      = document.getElementById('seconds');
+  var progressPctEl  = document.getElementById('progress-percent');
+  var progressFillEl = document.getElementById('progress-fill');
+  var footerYearEl   = document.getElementById('footer-year');
+
+  /* ============ حالة داخلية ============ */
+  var intervalId   = null;
+  var targetTs     = null;
+  var cachedTz     = null;
+  var cachedFmt    = null;
+  var cachedDateFmt = null;
+
+  /* ============ أدوات مساعدة ============ */
+
+  function pad(n) {
+    return n < 10 ? '0' + n : String(n);
+  }
+
+  // يُخزن المنسق مرة واحدة لكل منطقة زمنية (تحسين أداء — لا لاغ)
+  function getPartsInTimeZone(date, timeZone) {
+    if (cachedTz !== timeZone) {
+      cachedTz = timeZone;
+      cachedFmt = new Intl.DateTimeFormat('en-US', {
+        timeZone: timeZone,
+        year: 'numeric', month: '2-digit', day: '2-digit',
+        hour: '2-digit', minute: '2-digit', second: '2-digit',
+        hour12: false
+      });
+      cachedDateFmt = new Intl.DateTimeFormat('ar-EG', {
+        timeZone: timeZone,
+        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+      });
+    }
+    var parts = cachedFmt.formatToParts(date);
+    var o = {};
+    for (var i = 0; i < parts.length; i++) {
+      var p = parts[i];
+      if (p.type !== 'literal') o[p.type] = parseInt(p.value, 10);
+    }
+    if (o.hour === 24) o.hour = 0;
+    return o;
+  }
+
+  // حساب الطابع الزمني UTC الذي يوافق 2027-01-01 00:00:00 في المنطقة المختارة
+  // (طريقة تكرارية دقيقة تتجنب مشاكل التوقيت الصيفي)
+  function computeTargetTimestamp(timeZone) {
+    var desiredUTC = Date.UTC(
+      TARGET.year, TARGET.month, TARGET.day,
+      TARGET.hour, TARGET.minute, TARGET.second
+    );
+    var ts = desiredUTC;
+    try {
+      for (var i = 0; i < 4; i++) {
+        var p = getPartsInTimeZone(new Date(ts), timeZone);
+        var localAsUTC = Date.UTC(p.year, p.month - 1, p.day, p.hour, p.minute, p.second);
+        var diff = desiredUTC - localAsUTC;
+        if (diff === 0) break;
+        ts += diff;
+      }
+    } catch (e) {
+      return desiredUTC;
+    }
+    return ts;
+  }
+
+  // عرض إزاحة المنطقة الزمنية مثل "UTC+03:00"
+  function getOffsetLabel(timeZone) {
+    try {
+      var parts = new Intl.DateTimeFormat('en-US', {
+        timeZone: timeZone,
+        timeZoneName: 'longOffset'
+      }).formatToParts(new Date());
+      for (var i = 0; i < parts.length; i++) {
+        if (parts[i].type === 'timeZoneName') {
+          var v = parts[i].value;
+          return v === 'GMT' ? 'UTC+00:00' : v.replace('GMT', 'UTC');
         }
+      }
+    } catch (e) {}
+    return '';
+  }
 
-        /**
-         * الحصول على كائن Date يمثل اللحظة الحالية بدقة في منطقة زمنية معينة.
-         * هذه الطريقة تتجنب مشاكل التوقيت الصيفي لأنها تعتمد على تنسيق اللغة.
-         */
-        function getNowInTimeZone(timeZone) {
-            const now = new Date();
-            // الحصول على أجزاء التاريخ والوقت الحالية في المنطقة الزمنية المحددة
-            const parts = new Intl.DateTimeFormat('en-US', {
-                timeZone: timeZone,
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                hour12: false // لضمان تنسيق 24 ساعة
-            }).formatToParts(now);
+  /* ============ قائمة المناطق الزمنية ============ */
 
-            const getPart = (type) => {
-                const part = parts.find(p => p.type === type);
-                return part ? parseInt(part.value, 10) : 0;
-            };
+  var REGION_NAMES = {
+    'Africa': 'أفريقيا',
+    'America': 'الأمريكتان',
+    'Antarctica': 'القارة القطبية الجنوبية',
+    'Asia': 'آسيا',
+    'Atlantic': 'المحيط الأطلسي',
+    'Australia': 'أستراليا',
+    'Europe': 'أوروبا',
+    'Indian': 'المحيط الهندي',
+    'Pacific': 'المحيط الهادئ',
+    'UTC': 'التوقيت العالمي'
+  };
 
-            const year = getPart('year');
-            const month = getPart('month'); // 1-12
-            const day = getPart('day');
-            let hour = getPart('hour');
-            // في بعض الحالات hour12:false قد يعطي 24 لـ 12 منتصف الليل، فنصححها إلى 0
-            if (hour === 24) hour = 0;
-            const minute = getPart('minute');
-            const second = getPart('second');
+  // قائمة احتياطية شاملة (تُستخدم فقط إن لم يدعم المتصفح Intl.supportedValuesOf)
+  var FALLBACK_TZ = [
+    'UTC',
+    'Africa/Abidjan','Africa/Accra','Africa/Addis_Ababa','Africa/Algiers','Africa/Cairo','Africa/Casablanca',
+    'Africa/Dakar','Africa/Johannesburg','Africa/Khartoum','Africa/Lagos','Africa/Nairobi','Africa/Tripoli','Africa/Tunis',
+    'America/Anchorage','America/Bogota','America/Buenos_Aires','America/Caracas','America/Chicago','America/Denver',
+    'America/Havana','America/Lima','America/Los_Angeles','America/Mexico_City','America/New_York','America/Panama',
+    'America/Phoenix','America/Santiago','America/Sao_Paulo','America/Toronto','America/Vancouver',
+    'Asia/Almaty','Asia/Amman','Asia/Baghdad','Asia/Bahrain','Asia/Bangkok','Asia/Beirut','Asia/Damascus','Asia/Dhaka',
+    'Asia/Dubai','Asia/Gaza','Asia/Hong_Kong','Asia/Jakarta','Asia/Jerusalem','Asia/Kabul','Asia/Karachi','Asia/Kathmandu',
+    'Asia/Kolkata','Asia/Kuala_Lumpur','Asia/Kuwait','Asia/Manila','Asia/Muscat','Asia/Qatar','Asia/Riyadh','Asia/Seoul',
+    'Asia/Shanghai','Asia/Singapore','Asia/Taipei','Asia/Tashkent','Asia/Tehran','Asia/Tokyo',
+    'Atlantic/Azores','Atlantic/Reykjavik',
+    'Australia/Adelaide','Australia/Brisbane','Australia/Darwin','Australia/Melbourne','Australia/Perth','Australia/Sydney',
+    'Europe/Amsterdam','Europe/Athens','Europe/Berlin','Europe/Brussels','Europe/Bucharest','Europe/Budapest',
+    'Europe/Copenhagen','Europe/Dublin','Europe/Helsinki','Europe/Istanbul','Europe/Kiev','Europe/Lisbon','Europe/London',
+    'Europe/Madrid','Europe/Moscow','Europe/Oslo','Europe/Paris','Europe/Prague','Europe/Rome','Europe/Stockholm',
+    'Europe/Vienna','Europe/Warsaw','Europe/Zurich',
+    'Indian/Maldives','Indian/Mauritius',
+    'Pacific/Auckland','Pacific/Fiji','Pacific/Honolulu'
+  ];
 
-            // إنشاء كائن Date بتوقيت UTC يمثل هذه القيم.
-            // هذا الكائن نستخدمه فقط لحساب الفروق الزمنية، وليس للعرض المباشر.
-            return new Date(Date.UTC(year, month - 1, day, hour, minute, second));
+  function getAllTimeZones() {
+    try {
+      if (typeof Intl !== 'undefined' && typeof Intl.supportedValuesOf === 'function') {
+        var list = Intl.supportedValuesOf('timeZone');
+        if (list && list.length) {
+          var arr = list.slice();
+          if (arr.indexOf('UTC') === -1) arr.unshift('UTC');
+          return arr;
         }
+      }
+    } catch (e) {}
+    return FALLBACK_TZ.slice();
+  }
 
-        /**
-         * إنشاء كائن Date يمثل التاريخ المستهدف (1 يناير 2027 00:00:00) في منطقة زمنية معينة.
-         */
-        function getTargetDateInTimeZone(timeZone) {
-            // نستخدم Date.UTC لإنشاء تاريخ أساسي، ثم نطرح فرق التوقيت للمنطقة الزمنية.
-            // الطريقة الأكثر أمانًا هي استخدام Intl.DateTimeFormat للحصول على الإزاحة.
-            // لكن بما أننا نتعامل مع تاريخ مستقبلي ثابت (1 يناير)، يمكننا استخدام نهج
-            // إنشاء تاريخ في المنطقة الزمنية المطلوبة ومقارنته مع UTC.
-            
-            // ننشئ تاريخًا مبدئيًا في UTC (1 يناير 2027 00:00:00 UTC)
-            const utcTarget = Date.UTC(TARGET_YEAR, TARGET_MONTH_INDEX, TARGET_DAY, TARGET_HOUR, TARGET_MINUTE, TARGET_SECOND);
-            
-            // للحصول على التاريخ الصحيح في المنطقة الزمنية المحددة، نستخدم خدعة:
-            // ننسق utcTarget باستخدام timeZone للحصول على القيم المحلية، ثم نعيد بناء Date.UTC.
-            // لكن هذا قد يكون معقدًا. بدلاً من ذلك، نستخدم Intl.DateTimeFormat مع timeZone
-            // للحصول على الإزاحة بالدقائق بين UTC والمنطقة الزمنية في تلك اللحظة.
-            
-            // الطريقة الأبسط: استخدام Date.toLocaleString مع timeZone للحصول على التاريخ
-            // ثم تحويله إلى كائن Date. لكن toLocaleString يعيد سلسلة نصية.
-            
-            // سنستخدم الطريقة التالية: إنشاء كائن Date يمثل 1 يناير 2027 00:00:00 في UTC،
-            // ثم نستخدم Intl.DateTimeFormat لمعرفة كيف يبدو هذا الوقت في المنطقة الزمنية المطلوبة.
-            // ثم نحسب الفرق.
-            
-            const tempDate = new Date(utcTarget);
-            const formatter = new Intl.DateTimeFormat('en-US', {
-                timeZone: timeZone,
-                year: 'numeric', month: '2-digit', day: '2-digit',
-                hour: '2-digit', minute: '2-digit', second: '2-digit',
-                hour12: false
-            });
-            const parts = formatter.formatToParts(tempDate);
-            const getPart = (type) => {
-                const part = parts.find(p => p.type === type);
-                return part ? parseInt(part.value, 10) : 0;
-            };
-            const localYear = getPart('year');
-            const localMonth = getPart('month');
-            const localDay = getPart('day');
-            let localHour = getPart('hour');
-            if (localHour === 24) localHour = 0;
-            const localMinute = getPart('minute');
-            const localSecond = getPart('second');
+  function populateTimeZones() {
+    var zones = getAllTimeZones();
+    var groups = {};
+    var i, tz, region, slash;
 
-            // الآن، التاريخ "1 يناير 2027 00:00:00" في المنطقة الزمنية المطلوبة
-            // يعادل في UTC: utcTarget - (الفرق بين التوقيت المحلي و UTC)
-            // لكننا نريد حساب الفرق بين "الآن" و "التاريخ المستهدف المحلي".
-            // بدلاً من ذلك، يمكننا حساب الفرق مباشرة بين كائن Date للحظة الحالية
-            // وكائن Date يمثل 1 يناير 2027 00:00:00 في تلك المنطقة الزمنية.
-            
-            // لنعد طريقة أبسط وأكثر موثوقية:
-            // 1. نحصل على "الآن" في المنطقة الزمنية ككائن Date (باستخدام getNowInTimeZone).
-            // 2. نحصل على "التاريخ المستهدف" في نفس المنطقة الزمنية بنفس الطريقة:
-            //    ننشئ تاريخًا يمثل 1 يناير 2027 00:00:00 في تلك المنطقة الزمنية.
-            
-            // لإنشاء تاريخ 1 يناير 2027 00:00:00 في منطقة زمنية معينة:
-            // نعلم أن 1 يناير 2027 00:00:00 في تلك المنطقة يعادل في UTC:
-            // utcTarget - offset (بالمللي ثانية).
-            // لكن offset يتغير. لحسن الحظ، 1 يناير 2027 هو تاريخ مستقبلي، ولكن يمكننا
-            // استخدام Intl.DateTimeFormat لمعرفة الإزاحة في ذلك التاريخ.
-            
-            // نستخدم formatter للحصول على الإزاحة بالدقائق بين UTC والمنطقة الزمنية
-            // في لحظة utcTarget (التي تمثل 1 يناير 2027 00:00:00 UTC).
-            // لكننا نريد الإزاحة عند منتصف ليل 1 يناير 2027 في تلك المنطقة.
-            // هذا قد يكون معقدًا. بدلاً من ذلك، يمكننا استخدام نهج مختلف:
-            
-            // ننشئ تاريخًا في المنطقة الزمنية المطلوبة عن طريق إزاحة utcTarget
-            // بمقدار الفرق بين التوقيت المحلي و UTC في تلك اللحظة.
-            
-            // لكن الأبسط والأكثر دقة: استخدام مكتبة خارجية؟ لا نريد ذلك.
-            // يمكننا استخدام Intl.DateTimeFormat للحصول على التمثيل النصي،
-            // ثم تحويله إلى Date. لكن هذا يعتمد على تنسيق معين.
-            
-            // الطريقة الأكثر شيوعًا: استخدام Date.UTC ثم طرح offset.
-            // لكن offset يمكن الحصول عليه من formatter.formatToParts.
-            
-            // سأستخدم طريقة عملية: 
-            // نحصل على الإزاحة بالدقائق بين UTC والمنطقة الزمنية في لحظة معينة.
-            function getTimezoneOffsetMinutes(timeZone, date) {
-                const utcDate = new Date(date.toLocaleString('en-US', { timeZone: 'UTC' }));
-                const tzDate = new Date(date.toLocaleString('en-US', { timeZone: timeZone }));
-                return (utcDate - tzDate) / 60000;
-            }
-            
-            // لكن هذه الدالة قد لا تكون دقيقة عبر التوقيت الصيفي. لحسن الحظ،
-            // 1 يناير 2027 ليس في فترة التوقيت الصيفي في معظم المناطق.
-            
-            // بدلاً من ذلك، سأستخدم نهجًا أكثر مباشرة:
-            // لحساب العد التنازلي، نحتاج إلى مقارنة "الآن" مع "التاريخ المستهدف"
-            // في نفس المنطقة الزمنية. يمكننا تحويل كلاهما إلى طوابع زمنية (timestamps)
-            // تمثل نفس اللحظة المطلقة.
-            
-            // "الآن" هو ببساطة Date.now().
-            // "التاريخ المستهدف" هو 1 يناير 2027 00:00:00 في المنطقة الزمنية المحددة.
-            // لتحويل هذا التاريخ المحلي إلى طابع زمني UTC، نستخدم:
-            // timestamp = Date.UTC(year, month-1, day, hour, min, sec) - offset(ms)
-            // حيث offset هو الفرق بين التوقيت المحلي و UTC في تلك اللحظة.
-            
-            // يمكننا الحصول على offset باستخدام Intl.DateTimeFormat.
-            // لكن بما أننا نتعامل مع تاريخ محدد، يمكننا حسابه مرة واحدة عند اختيار المنطقة.
-            
-            // سأستخدم دالة لحساب الإزاحة بالمللي ثانية:
-            function getOffsetMs(timeZone, date) {
-                // date هو كائن Date يمثل لحظة معينة.
-                // نريد معرفة الفرق بين التوقيت المحلي في timeZone و UTC في تلك اللحظة.
-                const utcString = date.toLocaleString('en-US', { timeZone: 'UTC' });
-                const tzString = date.toLocaleString('en-US', { timeZone: timeZone });
-                const utcDate = new Date(utcString);
-                const tzDate = new Date(tzString);
-                return utcDate - tzDate; // بالمللي ثانية
-            }
-            
-            // ننشئ تاريخًا مبدئيًا في UTC يمثل 1 يناير 2027 00:00:00
-            const baseUTC = new Date(Date.UTC(TARGET_YEAR, TARGET_MONTH_INDEX, TARGET_DAY, TARGET_HOUR, TARGET_MINUTE, TARGET_SECOND));
-            
-            // نحصل على الإزاحة في تلك اللحظة التقريبية (قد لا تكون دقيقة تمامًا عبر التوقيت الصيفي،
-            // لكن 1 يناير عادةً لا يكون في التوقيت الصيفي).
-            // للحصول على دقة أفضل، يمكننا تكرار العملية.
-            let offset = getOffsetMs(timeZone, baseUTC);
-            // نطرح الإزاحة للحصول على الطابع الزمني UTC الذي يمثل منتصف ليل 1 يناير 2027 في تلك المنطقة.
-            const targetTimestamp = baseUTC.getTime() - offset;
-            
-            // لكن هذه الطريقة قد لا تكون دقيقة بسبب التوقيت الصيفي. لحسن الحظ،
-            // 1 يناير 2027 ليس في التوقيت الصيفي في معظم المناطق.
-            // يمكننا إضافة تحقق بسيط، لكن هذا يكفي.
-            
-            return targetTimestamp;
-        }
+    for (i = 0; i < zones.length; i++) {
+      tz = zones[i];
+      slash = tz.indexOf('/');
+      region = slash === -1 ? 'UTC' : tz.substring(0, slash);
+      if (!groups[region]) groups[region] = [];
+      groups[region].push(tz);
+    }
 
-        /**
-         * تحديث العد التنازلي بناءً على المنطقة الزمنية المختارة.
-         */
-        function updateCountdown() {
-            const selectedTimeZone = timezoneSelect.value;
-            if (!selectedTimeZone) return;
+    // ترتيب المناطق
+    var order = ['UTC','Africa','America','Antarctica','Asia','Atlantic','Australia','Europe','Indian','Pacific'];
+    var regions = Object.keys(groups).sort(function (a, b) {
+      var ai = order.indexOf(a), bi = order.indexOf(b);
+      if (ai === -1 && bi === -1) return a < b ? -1 : 1;
+      if (ai === -1) return 1;
+      if (bi === -1) return -1;
+      return ai - bi;
+    });
 
-            // حساب الطابع الزمني للتاريخ المستهدف في المنطقة الزمنية المحددة
-            const targetTimestamp = getTargetDateInTimeZone(selectedTimeZone);
-            const nowTimestamp = Date.now();
+    var frag = document.createDocumentFragment();
+    for (i = 0; i < regions.length; i++) {
+      region = regions[i];
+      var og = document.createElement('optgroup');
+      og.label = REGION_NAMES[region] || region;
+      var list = groups[region].sort();
+      for (var j = 0; j < list.length; j++) {
+        var opt = document.createElement('option');
+        opt.value = list[j];
+        opt.textContent = list[j].replace(/_/g, ' ');
+        og.appendChild(opt);
+      }
+      frag.appendChild(og);
+    }
+    tzSelect.appendChild(frag);
 
-            const diff = targetTimestamp - nowTimestamp;
+    // اختيار منطقة المستخدم المحلية كافتراضي
+    var localTZ = 'UTC';
+    try {
+      localTZ = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
+    } catch (e) {}
 
-            // إذا وصل العد التنازلي إلى الصفر أو تجاوزه
-            if (diff <= 0) {
-                daysEl.textContent = '00';
-                hoursEl.textContent = '00';
-                minutesEl.textContent = '00';
-                secondsEl.textContent = '00';
-                // يمكن إضافة رسالة احتفالية هنا
-                return;
-            }
+    var exists = false;
+    for (i = 0; i < tzSelect.options.length; i++) {
+      if (tzSelect.options[i].value === localTZ) { exists = true; break; }
+    }
+    if (!exists && localTZ) {
+      var extra = document.createElement('option');
+      extra.value = localTZ;
+      extra.textContent = localTZ.replace(/_/g, ' ');
+      tzSelect.appendChild(extra);
+    }
+    tzSelect.value = localTZ;
+  }
 
-            // حساب الأيام والساعات والدقائق والثواني
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+  /* ============ التحديث الدوري ============ */
 
-            // تحديث العناصر
-            daysEl.textContent = pad(days);
-            hoursEl.textContent = pad(hours);
-            minutesEl.textContent = pad(minutes);
-            secondsEl.textContent = pad(seconds);
-        }
+  function updateCountdown() {
+    var tz = tzSelect.value;
+    if (!tz || targetTs === null) return;
 
-        /**
-         * تعبئة قائمة المناطق الزمنية.
-         */
-        function populateTimeZones() {
-            let timeZones = [];
-            try {
-                // الحصول على جميع المناطق الزمنية المدعومة من المتصفح
-                if (typeof Intl !== 'undefined' && Intl.supportedValuesOf) {
-                    timeZones = Intl.supportedValuesOf('timeZone');
-                }
-            } catch (e) {
-                console.warn('Intl.supportedValuesOf غير مدعوم، سيتم استخدام قائمة افتراضية.', e);
-            }
+    var now = Date.now();
+    var diff = targetTs - now;
+    if (diff < 0) diff = 0;
 
-            // إذا لم تكن هناك قائمة (متصفح قديم)، استخدم قائمة احتياطية شاملة.
-            if (!timeZones || timeZones.length === 0) {
-                // قائمة احتياطية لبعض المناطق الشائعة (ليست كلها، ولكن كحل أخير)
-                timeZones = [
-                    'UTC',
-                    'Africa/Cairo', 'Africa/Casablanca', 'Africa/Johannesburg', 'Africa/Lagos', 'Africa/Nairobi',
-                    'America/New_York', 'America/Chicago', 'America/Denver', 'America/Los_Angeles', 'America/Sao_Paulo', 'America/Mexico_City',
-                    'Asia/Riyadh', 'Asia/Dubai', 'Asia/Karachi', 'Asia/Kolkata', 'Asia/Dhaka', 'Asia/Bangkok', 'Asia/Shanghai', 'Asia/Tokyo', 'Asia/Seoul',
-                    'Australia/Sydney', 'Australia/Perth', 'Europe/London', 'Europe/Paris', 'Europe/Berlin', 'Europe/Moscow', 'Europe/Istanbul',
-                    'Pacific/Auckland'
-                ];
-            }
+    var totalSec = Math.floor(diff / 1000);
+    var d = Math.floor(totalSec / 86400);
+    var h = Math.floor((totalSec % 86400) / 3600);
+    var m = Math.floor((totalSec % 3600) / 60);
+    var s = totalSec % 60;
 
-            // إضافة خيار "UTC" إذا لم يكن موجودًا (لأن Intl.supportedValuesOf قد لا يعيده)
-            if (!timeZones.includes('UTC')) {
-                timeZones.unshift('UTC');
-            }
+    daysEl.textContent    = pad(d);
+    hoursEl.textContent   = pad(h);
+    minutesEl.textContent = pad(m);
+    secondsEl.textContent = pad(s);
 
-            // تعبئة القائمة المنسدلة
-            timezoneSelect.innerHTML = '';
-            timeZones.forEach(tz => {
-                const option = document.createElement('option');
-                option.value = tz;
-                option.textContent = tz.replace(/_/g, ' '); // استبدال الشرطات السفلية بمسافات للقراءة
-                timezoneSelect.appendChild(option);
-            });
+    // الوقت الحالي في المنطقة المختارة
+    var nowDate = new Date();
+    var p = getPartsInTimeZone(nowDate, tz);
+    currentTimeEl.textContent = pad(p.hour) + ':' + pad(p.minute) + ':' + pad(p.second);
+    if (currentDateEl.textContent === '—') {
+      try { currentDateEl.textContent = cachedDateFmt.format(nowDate); } catch (e) {}
+    } else {
+      try { currentDateEl.textContent = cachedDateFmt.format(nowDate); } catch (e) {}
+    }
+    currentYearEl.textContent = p.year;
+    footerYearEl.textContent  = p.year;
 
-            // محاولة اختيار المنطقة الزمنية المحلية للمستخدم كخيار افتراضي
-            try {
-                const localTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-                if (timeZones.includes(localTimeZone)) {
-                    timezoneSelect.value = localTimeZone;
-                } else {
-                    timezoneSelect.value = 'UTC'; // افتراضي
-                }
-            } catch (e) {
-                timezoneSelect.value = 'UTC';
-            }
+    // نسبة تقدم السنة الحالية في المنطقة المختارة
+    var yearStart = Date.UTC(p.year, 0, 1, 0, 0, 0);
+    var yearEnd   = Date.UTC(p.year + 1, 0, 1, 0, 0, 0);
+    var nowLocalUTC = Date.UTC(p.year, p.month - 1, p.day, p.hour, p.minute, p.second);
+    var pct = ((nowLocalUTC - yearStart) / (yearEnd - yearStart)) * 100;
+    if (pct < 0) pct = 0;
+    if (pct > 100) pct = 100;
+    progressPctEl.textContent = pct.toFixed(1) + '%';
+    progressFillEl.style.width = pct + '%';
+  }
 
-            // عرض التاريخ المستهدف في المنطقة المختارة
-            updateTargetDateDisplay();
-        }
+  function startCountdown() {
+    if (intervalId) clearInterval(intervalId);
+    updateCountdown();
+    intervalId = setInterval(updateCountdown, 1000);
+  }
 
-        /**
-         * تحديث عرض التاريخ المستهدف بالمنطقة الزمنية المختارة.
-         */
-        function updateTargetDateDisplay() {
-            const selectedTimeZone = timezoneSelect.value;
-            if (!selectedTimeZone) return;
-            try {
-                // عرض 1 يناير 2027 بتنسيق مقروء في المنطقة الزمنية المختارة
-                const targetDate = new Date(Date.UTC(TARGET_YEAR, TARGET_MONTH_INDEX, TARGET_DAY, TARGET_HOUR, TARGET_MINUTE, TARGET_SECOND));
-                const formatter = new Intl.DateTimeFormat('ar-EG', {
-                    timeZone: selectedTimeZone,
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    hour12: true
-                });
-                targetDateDisplay.textContent = formatter.format(targetDate);
-            } catch (e) {
-                targetDateDisplay.textContent = `1 يناير ${TARGET_YEAR}`;
-            }
-        }
+  function onTimezoneChange() {
+    var tz = tzSelect.value;
+    if (!tz) return;
 
-        /**
-         * بدء أو إعادة تشغيل العد التنازلي.
-         */
-        function startCountdown() {
-            if (countdownInterval) {
-                clearInterval(countdownInterval);
-            }
-            updateCountdown(); // تحديث فوري
-            countdownInterval = setInterval(updateCountdown, 1000);
-        }
+    // إعادة تعيين الكاش لأن المنطقة تغيّرت
+    cachedTz = null;
+    cachedFmt = null;
+    cachedDateFmt = null;
 
-        // ===== التهيئة =====
-        document.addEventListener('DOMContentLoaded', () => {
-            populateTimeZones();
-            startCountdown();
+    targetTs = computeTargetTimestamp(tz);
+    tzOffset.textContent = getOffsetLabel(tz) || '—';
 
-            // عند تغيير المنطقة الزمنية
-            timezoneSelect.addEventListener('change', () => {
-                updateTargetDateDisplay();
-                startCountdown();
-            });
-        });
-    </script>
+    // إجبار تحديث التاريخ
+    currentDateEl.textContent = '—';
+
+    startCountdown();
+  }
+
+  /* ============ التهيئة ============ */
+
+  function init() {
+    populateTimeZones();
+    tzSelect.addEventListener('change', onTimezoneChange);
+    onTimezoneChange();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
 </body>
 </html>
